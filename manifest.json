@@ -1,0 +1,8 @@
+{
+  "id": "com.tracereactive.strings",
+  "name": "Strings",
+  "version": "1.0.0",
+  "description": "Nodes for string manipulation, regex matching, templating, splitting, joining, and encoding.",
+  "main": "dist/index.js",
+  "permissions": []
+}
