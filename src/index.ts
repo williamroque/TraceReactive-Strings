@@ -23,7 +23,9 @@ import { Base64DecodeNode } from './nodes/encoding/Base64DecodeNode';
 import { UrlEncodeNode } from './nodes/encoding/UrlEncodeNode';
 import { UrlDecodeNode } from './nodes/encoding/UrlDecodeNode';
 
-declare const traceReactive: any;
+import type { TraceReactiveAPI } from '@tracereactive/types';
+
+declare const traceReactive: TraceReactiveAPI;
 
 const nodes = [
     new RegexMatchNode(),
