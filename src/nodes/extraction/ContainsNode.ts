@@ -14,7 +14,7 @@ export class ContainsNode extends BaseNode {
     ];
 
     readonly outputs: OutputDefinition[] = [
-        { name: 'Found', outputType: 'core:any' },
+        { name: 'Found', outputType: 'core:boolean' },
         { name: 'Index', outputType: 'core:number' }
     ];
 

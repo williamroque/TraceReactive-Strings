@@ -15,7 +15,7 @@ export class RegexMatchNode extends BaseNode {
     ];
 
     readonly outputs: OutputDefinition[] = [
-        { name: 'Matched', outputType: 'core:any' },
+        { name: 'Matched', outputType: 'core:boolean' },
         { name: 'Full Match', outputType: 'core:string' },
         { name: 'Matches', outputType: 'core:string-array' },
         { name: 'Groups', outputType: 'core:data' }

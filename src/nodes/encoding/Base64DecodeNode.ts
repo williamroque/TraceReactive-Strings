@@ -14,7 +14,7 @@ export class Base64DecodeNode extends BaseNode {
 
     readonly outputs: OutputDefinition[] = [
         { name: 'Text', outputType: 'core:string' },
-        { name: 'Success', outputType: 'core:any' }
+        { name: 'Success', outputType: 'core:boolean' }
     ];
 
     readonly properties: PropertyDefinition[] = [];

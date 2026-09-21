@@ -14,7 +14,7 @@ export class EndsWithNode extends BaseNode {
     ];
 
     readonly outputs: OutputDefinition[] = [
-        { name: 'Matches', outputType: 'core:any' }
+        { name: 'Matches', outputType: 'core:boolean' }
     ];
 
     readonly properties: PropertyDefinition[] = [
