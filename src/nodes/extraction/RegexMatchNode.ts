@@ -57,7 +57,8 @@ export class RegexMatchNode extends BaseNode {
             const isGlobal = flags.includes('g');
 
             if (isGlobal) {
-                const matches = Array.from(text.matchAll(regex));
+                const allMatches = Array.from(text.matchAll(regex));
+                const matches = allMatches.filter(m => m[0].length > 0);
                 const matchedStrings = matches.map(m => m[0]);
                 const firstMatch = matches[0];
                 const groups = firstMatch && firstMatch.groups ? { ...firstMatch.groups } : {};
