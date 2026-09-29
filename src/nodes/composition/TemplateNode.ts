@@ -24,7 +24,7 @@ export class TemplateNode extends BaseNode {
             label: 'Template',
             description: 'Template with placeholders like {1}, {value_1}, or {Value 1}',
             type: 'text',
-            defaultValue: 'Hello {1}!'
+            defaultValue: '{1}'
         }
     ];
 
