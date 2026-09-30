@@ -1,6 +1,7 @@
 import { BaseNode } from '@tracereactive/types';
 import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@tracereactive/types';
 import { StringsCategory } from '../../category';
+import { unescapeString } from '../../utils/stringUtils';
 
 export class ConcatNode extends BaseNode {
     readonly typeId = 'string-concat';
@@ -30,7 +31,7 @@ export class ConcatNode extends BaseNode {
     ];
 
     async evaluate(inputs: Record<string, any>, properties: Record<string, any>): Promise<Record<string, any>> {
-        const separator = String(properties['separator'] || '');
+        const separator = unescapeString(String(properties['separator'] || ''));
         const items: string[] = [];
 
         for (let i = 1; i <= 200; i++) {

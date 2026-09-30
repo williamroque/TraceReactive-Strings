@@ -1,6 +1,7 @@
 import { BaseNode } from '@tracereactive/types';
 import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@tracereactive/types';
 import { StringsCategory } from '../../category';
+import { unescapeString } from '../../utils/stringUtils';
 
 export class JoinNode extends BaseNode {
     readonly typeId = 'string-join';
@@ -29,9 +30,11 @@ export class JoinNode extends BaseNode {
 
     async evaluate(inputs: Record<string, any>, properties: Record<string, any>): Promise<Record<string, any>> {
         const rawArray = inputs['Array'];
-        const delimiter = inputs['Delimiter'] !== undefined && inputs['Delimiter'] !== null
+        let delimiter = inputs['Delimiter'] !== undefined && inputs['Delimiter'] !== null
             ? String(inputs['Delimiter'])
             : String(properties['delimiter'] !== undefined ? properties['delimiter'] : ',');
+            
+        delimiter = unescapeString(delimiter);
 
         if (!Array.isArray(rawArray)) {
             return {

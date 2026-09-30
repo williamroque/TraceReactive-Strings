@@ -1,6 +1,7 @@
 import { BaseNode } from '@tracereactive/types';
 import type { InputDefinition, OutputDefinition, PropertyDefinition } from '@tracereactive/types';
 import { StringsCategory } from '../../category';
+import { unescapeString } from '../../utils/stringUtils';
 
 export class SplitNode extends BaseNode {
     readonly typeId = 'string-split';
@@ -51,10 +52,15 @@ export class SplitNode extends BaseNode {
 
     async evaluate(inputs: Record<string, any>, properties: Record<string, any>): Promise<Record<string, any>> {
         const text = inputs['Text'] !== undefined && inputs['Text'] !== null ? String(inputs['Text']) : '';
-        const delimiter = inputs['Delimiter'] !== undefined && inputs['Delimiter'] !== null
+        let delimiter = inputs['Delimiter'] !== undefined && inputs['Delimiter'] !== null
             ? String(inputs['Delimiter'])
             : String(properties['delimiter'] !== undefined ? properties['delimiter'] : ',');
         const isRegex = properties['isRegex'] === true;
+        
+        if (!isRegex) {
+            delimiter = unescapeString(delimiter);
+        }
+        
         const trimItems = properties['trimItems'] === true;
         const removeEmpty = properties['removeEmpty'] === true;
 
